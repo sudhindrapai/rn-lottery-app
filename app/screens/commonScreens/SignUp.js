@@ -1,10 +1,10 @@
 import {useState, useEffect} from "react";
-import {View, StyleSheet, ScrollView, SafeAreaView, KeyboardAvoidingView, ActivityIndicator} from 'react-native';
+import {View, StyleSheet,ActivityIndicator} from 'react-native';
 import {Fonts} from '../../constants/Fonts';
 import FormBuilder from "../../components/FormBuilder";
 import Button from '../../components/Button'
 import {updateFormInputState} from '../../utility/utility';
-
+import AuthWiewWrapper from "../../components/AuthViewWrapper";
 import {useDispatch, useSelector} from 'react-redux';
 import * as action from '../../store/actions/index';
 
@@ -137,15 +137,13 @@ const SignUp = (props) => {
     })
 
     return (
-        <ScrollView>
-            <SafeAreaView>
+        <AuthWiewWrapper>
                  <View style={styles.screen}>
                  {isLoading && <ActivityIndicator size={"large"} color="#0000ff" /> }
                     {form}
                     <Button label={"create an account"} clicked={validateCompleteForm} />
                 </View>
-            </SafeAreaView>
-        </ScrollView>
+                </AuthWiewWrapper>
     )
 };
 

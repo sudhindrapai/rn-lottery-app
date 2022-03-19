@@ -13,6 +13,7 @@ const FormBuilder = (props) => {
  switch (props.type){
         case 'INPUT':
             formElement = <View style={styles.inputSection} ><CustomTextInput 
+            placeholder = {props.placeHolder}
             id={props.id}
             label={props.label} 
             helperText={props.helperText} 
@@ -28,6 +29,7 @@ const FormBuilder = (props) => {
             break;
             case 'PASSWORD':
                 formElement = <Password 
+                placeHolder={props.placeHolder}
                 id={props.id}
             label={props.label} 
             isMultiLineInput={props.isMultiLineInput}

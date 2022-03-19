@@ -13,6 +13,7 @@ const CustomTextInput = (props) => {
         isError, 
         isWarning,
         id,
+        placeholder,
         isSuccess} = props;
         
         let messageStyle = 
@@ -30,6 +31,7 @@ const CustomTextInput = (props) => {
         {label.trim().length > 0 && <Text style={styles.inputLabel}>{label}{isMandatory && "*"}</Text>}
         <TextInput style={styles.textInput} 
         value={value} 
+        placeholder={placeholder}
         onChangeText={onInputText} 
         onBlur={onFocusLoase} 
         keyboardType = {keyboardType} />

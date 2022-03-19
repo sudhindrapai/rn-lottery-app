@@ -18,6 +18,7 @@ const Password = (props) => {
         isError, 
         isWarning,
         id,
+        placeHolder,
         isSuccess} = props;
 
         const [isVisible, setIsVisible] = useState(true)
@@ -36,7 +37,8 @@ const Password = (props) => {
     return <View>
         {label.trim().length > 0 && <Text style={styles.inputLabel}>{label}{isMandatory && "*"}</Text>}
         <View style={styles.passwordInput}>
-        <TextInput style={styles.textInput} 
+        <TextInput style={styles.textInput}
+        placeholder={placeHolder} 
         secureTextEntry={isVisible}
         value={value} 
         onChangeText={onInputText} 

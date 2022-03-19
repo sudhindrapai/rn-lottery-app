@@ -18,7 +18,7 @@ const  AuthStack = createStackNavigator({
         screen: LoginScreen,
         navigationOptions:{
             title: "login",
-            headerShown: true
+            headerShown: false
         }
     },
     forgotPassword:{

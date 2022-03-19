@@ -17,6 +17,7 @@ import {
 // import of auth navigation
 // import AuthNavigation from './navigation/AuthStackNavigation';
 import LotteryTabNavigation from './app/navigation/LotteryTabNavigation';
+import LotteryNavigation from './app/navigation/LotteruDrawerMenu';
 
 // import of reducers
 import loginReducer from './app/store/reducers/login';
@@ -45,7 +46,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <LotteryTabNavigation />
+      <LotteryNavigation />
     </Provider>
   );
 }

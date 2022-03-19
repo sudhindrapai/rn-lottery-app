@@ -84,4 +84,4 @@ createBottomTabNavigator(tabMenuOptions, {
         }
 });
 
-export default createAppContainer(TabOptions)
+export default TabOptions;

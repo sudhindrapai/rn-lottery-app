@@ -1,10 +1,10 @@
 import {useState} from "react";
-import {View, Text, StyleSheet, ScrollView, SafeAreaView, KeyboardAvoidingView} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Fonts} from '../../constants/Fonts';
 import FormBuilder from "../../components/FormBuilder";
 import Button from '../../components/Button'
 import {updateFormInputState} from '../../utility/utility';
-
+import AuthWiewWrapper from "../../components/AuthViewWrapper";
 import {useDispatch, useSelector} from 'react-redux';
 import * as action from '../../store/actions/index';
 
@@ -90,14 +90,12 @@ const UpdatePassword = (props) => {
     })
 
     return (
-        <ScrollView>
-            <SafeAreaView>
+        <AuthWiewWrapper>
                 <View style={styles.screen}>
                     {form}
                     <Button label={"create an account"} clicked={validateCompleteForm} />
                 </View>
-            </SafeAreaView>
-        </ScrollView>
+                </AuthWiewWrapper>
     )
 };
 
