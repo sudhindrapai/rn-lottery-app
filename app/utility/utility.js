@@ -103,6 +103,10 @@ const validateFormElement = (validationType, value, isRequired, customValidation
     return validatedObj
 }
 
+const updateTouchStatus = (id, values) => {
+    
+};
+
 // method to validate complete form
 export const validateForm = (formElements) => {
     let isValidForm = true;

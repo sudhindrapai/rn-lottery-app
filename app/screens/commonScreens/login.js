@@ -1,12 +1,13 @@
-import {useState} from "react";
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {useState, useEffect} from "react";
+import {View, StyleSheet, Image, Text, Dimensions} from 'react-native';
 import {Fonts} from '../../constants/Fonts';
 import FormBuilder from "../../components/FormBuilder";
 import Button from '../../components/Button'
-import {updateFormInputState} from '../../utility/utility';
+import {updateFormInputState, updateTouchStatus} from '../../utility/utility';
 import AuthWiewWrapper from "../../components/AuthViewWrapper";
 import {useDispatch, useSelector} from 'react-redux';
 import * as action from '../../store/actions/index';
+import { Colors } from "../../constants/Colors";
 
 
 const Login = (props) => {
@@ -54,9 +55,27 @@ const Login = (props) => {
         setFormElement(updateFormInputState(text, id, formElement))
     }
     
-    const onLoaseFocus = () => {}
+    const onLoaseFocus = (value) => {
+        console.log(value,"dfa")
+    }
 
-    const validateCompleteForm = () => {}
+    const validateCompleteForm = () => {
+        let loginObj = {};
+        for (let element of formElement) {
+            loginObj["emailId"] = element.id === "emailId" ? element.value : loginObj.emailId;
+            loginObj["password"] = element.id === "password" ? element.value : loginObj.password;
+            loginObj["rememberMe"] = true;
+        }
+        dispatch(action.createLogin(loginObj));
+    }
+
+    const redirectToForgotPassword = () => {
+        props.navigation.navigate("forgotPassword")
+    };
+
+    const redirectToSignup = () => {
+        props.navigation.navigate("singup")
+    };
 
     const form = formElement.map((element) => {
         return <FormBuilder 
@@ -84,7 +103,20 @@ const Login = (props) => {
                     </View>
                     <View style={styles.screen}>
                         {form}
-                        <Button label={"create an account"} clicked={validateCompleteForm} />
+                        <View style={styles.forgotPassword}>
+                            <Text onPress={redirectToForgotPassword} >
+                                Forgot password?
+                            </Text>
+                        </View>
+                        <View style={styles.actionbutton}>
+                        <Button label={"create an account"} variant={"gold"} clicked={validateCompleteForm} />
+                        </View>
+                        <View style={styles.singupContainer}>
+                            <Text style={styles.signupDummyText} >Dont't have an account? </Text>
+                            <View style={styles.ml5}>
+                                <Text style={styles.signupText} onPress={redirectToSignup} >Sign Up</Text> 
+                                </View>
+                        </View>
                     </View>
         </AuthWiewWrapper>
     )
@@ -112,9 +144,35 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         marginTop: 50
     },
-    image:{
-        flex: 1,
-        width: "100%"
+    actionbutton:{
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        marginVertical: 10
+    },
+    forgotPassword:{
+        width: "100%",
+        alignItems: "flex-end",
+        justifyContent: "center",
+        marginVertical: 15,
+        maxWidth: Dimensions.get("window").width - 45
+    },
+    singupContainer:{
+        width: "100%",
+        flexDirection: "row",
+        maxWidth: Dimensions.get("window").width - 45,
+        alignItems: "flex-end",
+        justifyContent: "flex-end"
+    },
+    signupDummyText:{
+        fontSize: 14,
+        color: Colors.textInputBorder
+    },
+    signupText:{
+        color: Colors.textColor,
+    },
+    ml5:{
+        marginLeft: 5,
     }
 })
 

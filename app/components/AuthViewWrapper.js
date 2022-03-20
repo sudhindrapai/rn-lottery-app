@@ -3,7 +3,7 @@ import {ScrollView,SafeAreaView, KeyboardAvoidingView, ImageBackground, StyleShe
 const AuthWiewWrapper = (props) => {
     return (
     <ImageBackground source={require("../assets/authScreenBgImage.png")} 
-            resizeMode={"cover"} style={styles.wrapperImage}>
+            resizeMode={"contain"} style={styles.wrapperImage}>
         <SafeAreaView>
             <ScrollView>
                 <KeyboardAvoidingView keyboardVerticalOffset={10}>
@@ -16,7 +16,9 @@ const AuthWiewWrapper = (props) => {
 
 const styles = StyleSheet.create({
     wrapperImage:{
-        flex:1
+        flex:1,
+        height:"100%",
+        backgroundColor: "#ffffff"
     }
 });
 

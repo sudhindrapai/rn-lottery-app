@@ -13,12 +13,6 @@ import LotteryStackNavigation from './LotteryStackNavigation';
 import AuctionStackNavigation from './AuctionStackNavigation';
 import AuthStack from './AuthStackNavigation';
 
-// import HomeScreen from '../screens/lottery/HomeScreen';
-// import AuctionHomeScreen from '../screens/auction/AuctionHomeScreen';
-// import LoginScreen from '../screens/commonScreens/login';
-// import RegisterScreen from '../screens/commonScreens/SignUp'
-
-
 const tabMenuOptions = {
     home:{
         screen: LotteryStackNavigation,

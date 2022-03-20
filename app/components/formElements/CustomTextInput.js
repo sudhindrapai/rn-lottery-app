@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         lineHeight: 21,
         paddingVertical: 8,
-        paddingHorizontal: 16
+        paddingHorizontal: 16,
+        borderRadius: 8
     },
     message:{
 

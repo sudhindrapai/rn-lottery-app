@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 import {Fonts} from '../../constants/Fonts';
 import FormBuilder from "../../components/FormBuilder";
 import Button from '../../components/Button'
@@ -15,8 +15,9 @@ const ForgotPassword = (props) => {
     const[formElement, setFormElement] = useState([
         {
             type:"INPUT",
-            label:"Email id",
+            label:"Email Address",
             id:"emailId",
+            placeHolder:"email-address@gmail.com",
             value:"",
             helperText: "",
             isMandatory: true,
@@ -44,6 +45,7 @@ const ForgotPassword = (props) => {
             type = {element.type}
             id={element.id}
             label={element.label} 
+            placeHolder={element.placeHolder}
             helperText={element.helperText} 
             isMandatory={element.isMandatory} 
             value={element.value} 
@@ -60,8 +62,13 @@ const ForgotPassword = (props) => {
     return (
         <AuthWiewWrapper>
                 <View style={styles.screen}>
+                    <Text style={styles.forgotPasswordText} >
+                    Please enter your registered email address to reset the password
+                    </Text>
                     {form}
-                    <Button label={"create an account"} clicked={validateCompleteForm} />
+                    <View style={styles.actionBtnContainer}>
+                    <Button label={"RESET PASSWORD"} clicked={validateCompleteForm} />
+                    </View>
                 </View>
                 </AuthWiewWrapper>
     )
@@ -71,7 +78,20 @@ const styles = StyleSheet.create({
     screen:{
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        // backgroundColor: "#ffffff"
+    },
+    forgotPasswordText:{
+        width: "100%",
+        maxWidth: Dimensions.get("window").width-45,
+        marginVertical: 20,
+        fontSize: 14,
+        color: "#828282"
+    },
+    actionBtnContainer:{
+        width: "100%",
+        maxWidth: Dimensions.get("window").width-45,
+        marginVertical: 10
     }
 })
 

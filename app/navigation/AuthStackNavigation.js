@@ -8,12 +8,6 @@ import ResetPasswordScreen from '../screens/commonScreens/ResetPassword';
 import UpdatePasswordScreen from '../screens/commonScreens/UpdatePassword';
 
 const  AuthStack = createStackNavigator({
-    singup: {
-        screen: SignUpScreen,
-        navigationOptions:{
-            title: "Register"
-        }
-    },
     login: {
         screen: LoginScreen,
         navigationOptions:{
@@ -21,10 +15,11 @@ const  AuthStack = createStackNavigator({
             headerShown: false
         }
     },
-    forgotPassword:{
-        screen: ForgotPasswordScreen,
+    singup: {
+        screen: SignUpScreen,
         navigationOptions:{
-            title: "Forgot Password"
+            title: "Register",
+            headerShown: true
         }
     },
     resetPassword: {
@@ -33,14 +28,19 @@ const  AuthStack = createStackNavigator({
             title: "Reset Password"
         }
     },
+    forgotPassword:{
+        screen: ForgotPasswordScreen,
+        navigationOptions:{
+            title: "Forgot Password?",
+            headerShown: true
+        }
+    },
     updatePassword: {
         screen: UpdatePasswordScreen,
         navigationOptions:{
             title: "Update Password"
         }
     }
-},{
-    initialRouteName: "singup"
 });
 
 export default AuthStack

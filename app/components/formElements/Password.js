@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderColor: Colors.textInput,
         borderWidth: 1,
-        borderRadius: 4,
+        borderRadius: 8,
         width: Dimensions.get("window").width - 45
     },
     inputContainer:{
@@ -75,16 +75,16 @@ const styles = StyleSheet.create({
         minWidth: Dimensions.get("window").width - 85,
         color: Colors.textColor,
         fontSize: 14,
-        borderRadius: 4,
         lineHeight: 21,
         paddingVertical: 8,
-        paddingHorizontal: 16
+        paddingHorizontal: 16,
+        borderRadius: 8
     },
     inputLabel:{
         fontFamily: Fonts.fontRegular,
         fontSize: 15,
         marginBottom: 6,
-        textTransform: "capitalize"
+        textTransform: "capitalize",
     },
     message:{
 

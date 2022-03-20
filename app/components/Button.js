@@ -1,6 +1,6 @@
 import {Colors} from '../constants/Colors';
 import {Fonts} from '../constants/Fonts';
-import {Text, StyleSheet, Pressable, Platform ,TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
+import {Text, StyleSheet, Pressable, Platform ,TouchableOpacity, TouchableWithoutFeedback, Dimensions} from 'react-native';
 
 const CustonButton = (props) => {
 
@@ -10,7 +10,13 @@ const CustonButton = (props) => {
         ButtonWrapper = TouchableWithoutFeedback
     }
 
-    return(<Pressable onPress={props.clicked} style={{...styles.btn}}>
+    let variantStyle = styles.btn;
+
+    if (props.variant == 'gold') {
+        variantStyle = styles.bgGold
+    }
+
+    return(<Pressable onPress={props.clicked} style={{...styles.btn, ...variantStyle}}>
         <Text style={styles.buttonText}>{props.label}</Text>
     </Pressable>)
 }
@@ -30,6 +36,11 @@ const styles = StyleSheet.create({
         fontFamily: Fonts.fontMedium,
         color: Colors.white,
         textTransform:'uppercase'
+    },
+    bgGold:{
+        backgroundColor: Colors.colorGold,
+        width: "100%",
+        maxWidth: Dimensions.get("window").width - 45
     }
 })
 
