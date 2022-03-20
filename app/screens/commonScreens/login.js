@@ -8,6 +8,7 @@ import AuthWiewWrapper from "../../components/AuthViewWrapper";
 import {useDispatch, useSelector} from 'react-redux';
 import * as action from '../../store/actions/index';
 import { Colors } from "../../constants/Colors";
+import HeaderImage from "../../components/HeaderImage";
 
 
 const Login = (props) => {
@@ -98,6 +99,7 @@ const Login = (props) => {
 
     return (
         <AuthWiewWrapper>
+            <HeaderImage />
                     <View style={styles.loginImage}>
                     <Image source={require("../../images/loginImage.png")} resizeMode={"contain"} />
                     </View>
@@ -115,7 +117,7 @@ const Login = (props) => {
                             <Text style={styles.signupDummyText} >Dont't have an account? </Text>
                             <View style={styles.ml5}>
                                 <Text style={styles.signupText} onPress={redirectToSignup} >Sign Up</Text> 
-                                </View>
+                            </View>
                         </View>
                     </View>
         </AuthWiewWrapper>

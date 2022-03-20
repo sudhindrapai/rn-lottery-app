@@ -2,6 +2,7 @@ import {Platform} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import {Colors} from '../constants/Colors'
 
 
 import { createAppContainer } from 'react-navigation';
@@ -21,7 +22,7 @@ const tabMenuOptions = {
             tabBarIcon: (tabInfo) => {
                 return <Entypo name="home" size={24} color={tabInfo.tintColor} />
             },
-            tabBarColor: "#fb2629"
+            tabBarColor: "#ffffff"
         }
     },
     lottery:{
@@ -31,7 +32,7 @@ const tabMenuOptions = {
             tabBarIcon: (tabInfo) => {
                 return <MaterialCommunityIcons name="puzzle" size={24} color={tabInfo.tintColor} />
             },
-            tabBarColor: "#fb2629"
+            tabBarColor: "#ffffff"
         }
     },
     auction: {
@@ -41,7 +42,7 @@ const tabMenuOptions = {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name="hammer-sharp" size={24} color={tabInfo.tintColor} />
             },
-            tabBarColor: "#fb2629"
+            tabBarColor: "#ffffff"
         }
     },
     purchases: {
@@ -51,7 +52,7 @@ const tabMenuOptions = {
             tabBarIcon: (tabInfo) => {
                 return <Entypo name="wallet" size={24} color={tabInfo.tintColor} />
             },
-            tabBarColor: "#fb2629"
+            tabBarColor: "#ffffff"
         }
     },
     profile:{
@@ -61,7 +62,7 @@ const tabMenuOptions = {
             tabBarIcon: (tabInfo) => {
                 return <Entypo name="user" size={24} color={tabInfo.tintColor} />
             },
-            tabBarColor: "#fb2629"
+            tabBarColor: "#ffffff"
         }
     }
 }
@@ -69,12 +70,14 @@ const tabMenuOptions = {
 
 const TabOptions = Platform.OS === "android"?  
 createMaterialBottomTabNavigator(tabMenuOptions,{
-    activeColor: 'white',
-    shifting: true
+    activeColor: Colors.primary,
+    inactiveColor: Colors.textInputBorder,
+    shifting: true,
+    labeled: true
 }) : 
 createBottomTabNavigator(tabMenuOptions, {
         tabBarOptions:{
-            activeTintColor: '#4ac2a2'
+            activeTintColor: Colors.primary
         }
 });
 
